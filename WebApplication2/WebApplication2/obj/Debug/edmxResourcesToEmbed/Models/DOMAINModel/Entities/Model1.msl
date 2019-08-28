@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FyzrukShopModelStoreContainer" CdmEntityContainer="FyzrukShopEntities">
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="FyzrukShopModel.Item">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ImageType" ColumnName="ImageType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

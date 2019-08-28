@@ -1,0 +1,48 @@
+﻿@model WebApplication2.Models.DOMAINModel.Entities.Item
+@{
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+    ViewBag.Css = "/Content/ItemPage.css";
+    ViewBag.Category = Model.Category;
+    ViewBag.Title = "Fyzruk shop";
+}
+
+<section>
+    <div class="container">
+        <article>
+
+            <h1 class="main-head">@Model.Name</h1>
+
+            <hr class="upper-line">
+
+            <div class="item-wrap">
+                <img src="@Url.Action("GetImage","Home", new { Model.ID})">
+                <div class="description">
+                    <h2>@Model.Name Description</h2>
+                    <p>@Model.FullDescription</p>
+                </div>
+            </div>
+            <div class="price-container">
+                <p class="price">Price: <i>@Model.Price.ToString("n") $</i><p>
+                <div class="btns">
+                    @using (Ajax.BeginForm("AddToCart", "Cart", new AjaxOptions
+                    {
+                        UpdateTargetId = "cart-popup-inner",
+                        OnSuccess = "added"
+                    }))
+                    {
+                        @Html.HiddenFor(i => i.ID)
+                    <button type="submit" class="btn-buy">Buy</button>
+                    <div class="counter-wrap">
+                    <p>Amount:</p>
+                    <input class="counter" type="number" name="quantity" min="1" max="99" defaultValue="1">
+                    
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <hr class="lower-line">
+
+        </article>
+    </div>
+</section>

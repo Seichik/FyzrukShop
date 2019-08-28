@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebApplication2.Models.DOMAINModel.Entities.Item>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageType)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model)
+    {
+        @Html.Partial("Item", item);
+    }
+    
+    </table>
+</body>
+</html>

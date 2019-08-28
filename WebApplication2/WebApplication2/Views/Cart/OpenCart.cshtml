@@ -1,0 +1,53 @@
+﻿@model WebApplication2.Models.DOMAINModel.Entities.Cart
+
+@if (Model.Lines.Count() != 0)
+{
+    foreach (var el in Model.Lines)
+    {
+<div class="main-cart-item">
+    <header>
+        <a data-ajax="true" data-ajax-mode="replace" data-ajax-update="#main-cart-inner" href="@Url.Action("RemoveLineFromCart","Cart",new {ID = el.Item.ID })">
+            <img src="~/Images/cart-close.svg" alt="Remove item" title="Remove item" id="item-remove">
+        </a>
+        <p>@el.Item.Name</p>
+    </header>
+    <section>
+        <img src="@Url.Action("GetImage", "Home", new { el.Item.ID })">
+        <div class="price-container"><p title="Item price"><span class="item-price">@el.Item.Price</span></p></div>
+        <div class="shortdesc-container"><p class="item-shortdesc">@el.Item.ShortDescription</p></div>
+        <div class="item-btns">
+            @using (Ajax.BeginForm("RemoveItem", "Cart", new AjaxOptions
+            {
+                UpdateTargetId = "main-cart-inner"
+            }))
+            {
+                @Html.Hidden("ID", el.Item.ID)
+                <input type="image" class="arrow-down" id="arrow-up" src="~/Images/minus.svg">
+            }
+            <input class="counter" type="number" id="quantity" disabled name="quantity" min="1" max="99" maxlength="2" value="@el.Quantity">
+            @using (Ajax.BeginForm("AddItem", "Cart", new AjaxOptions
+            {
+                UpdateTargetId = "main-cart-inner"
+            }))
+            {
+                @Html.Hidden("ID", el.Item.ID)
+                <input type="image" class="arrow-up" id="arrow-down" src="~/Images/plus.svg">
+            }
+        </div>
+        <div class="sum-container"><p class="item-sum" title="Sum of the same items">Sum:<br><span><i>@(el.Item.Price * el.Quantity)</i></span></p></div>
+    </section>
+    <hr>
+</div>
+    }
+<p class="general-price">Total price: <i>@Model.TotalPrice</i></p>
+}
+else
+{
+    <section id="empty-cart" class="empty-cart">
+        <img width="100px" src="~/Images/cart-empty.svg" alt="Empty cart">
+        <p>Your cart is empty</p>
+        <p>Please select a product to buy</p>
+    </section>
+}
+
+

@@ -1,0 +1,27 @@
+﻿@model WebApplication2.Models.DOMAINModel.Entities.Item
+
+
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.ShortDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.FullDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.ImageType)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) 
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
+    </td>
+</tr>

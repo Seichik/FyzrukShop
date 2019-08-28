@@ -1,0 +1,143 @@
+﻿@using WebApplication2.Models.DOMAINModel.Abstract;
+@using WebApplication2.Models.DOMAINModel.Concrete;
+@{
+    Layout = null;
+    IRepository repo = new EFItemRepository();
+    ViewBag.Categories = repo.Items
+        .Select(i => i.Category)
+        .Distinct()
+        .Except(new string[] { "Secret" });
+    ViewBag.Title = "Fyzruk shop";
+}
+
+<!DOCTYPE html>
+
+<html lang=en>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rancho&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap" rel="stylesheet">
+    <link href="/Content/Main.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="~/Images/Fyzruk_Favicon.png" type="image/png" sizes="16x16">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+          content="The best shop for sports gear out there, we have all sorts of quality clothing, from kids to adults.">
+    <title>@ViewBag.Title</title>
+</head>
+
+<body id="body" class="@if (ViewBag.Category == "Secret")
+{
+   @:secret
+}">
+    <!-- Main cart popup -->
+    <div class="main-cart hide" id="main-cart">
+        <div class="main-cart-header">
+            <img src="~/Images/cart-close.svg" alt="Close cart" id="cart-close">
+        </div>
+        <div class="main-cart-inner-wrapper" id="main-cart-inner">
+            @Html.Action("OpenCart", "Cart")
+        </div>
+        <div class="main-cart-footer">
+            <input type="submit" value="Continue shopping" id="btn-cnt">
+            @using (Html.BeginForm("Order", "Checkout"))
+            { <input type="submit" value="To checkout" id="btn-check"> }
+            
+        </div>
+    </div>
+
+    <div class="page-wrap" id="page-wrap">
+        <div class="" id="page-click-event">
+            <header>
+                <div class="header-container">
+                    <div class="container">
+                        <a href="@Url.Action("List", "Home")">
+                            <img src="~/Images/logo.svg" alt="Fyzruk Shop" class="logo" />
+                        </a>
+                        <img src="~/Images/list.svg" alt="Open categories list" class="list" id="list" />
+                        <nav>
+                            <ul>
+                                <li>@Html.ActionLink("home", "List", "Home")</li>
+                                <li>@Html.ActionLink("about", "About", "Home")</li>
+                                <li>@Html.ActionLink("contact", "Contact", "Home")</li>
+                                <li>
+                                    <a data-ajax="true" data-ajax-success="mainCartOpen" data-ajax-mode="replace" data-ajax-update="#main-cart-inner" href="@Url.Action("OpenCart","Cart")">
+                                        <img class="cart" src="~/Images/shopping-cart.svg" alt="Shopping cart" id="cart">
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Cart Popup with price and quantity -->
+            <div class="cart-popup-outer-wrapper hide" id="cart-popup">
+                <div class="cart-popup-container">
+                    <div class="cart-popup-inner-wrapper" id="cart-popup-inner">
+                        @Html.Action("CartWidget", "Cart")
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Popup when item added -->
+            <div class="cart-added hide" id="cart-added">
+                <p>Item added to cart!</p>
+                <img width="32" height="32" src="/Images/check-mark.svg">
+            </div>
+
+            <!-- Categories -->
+            <div class="categories-container hide" id="categories-container">
+
+                <ul class="categories">
+                    <li class="li-close"><img src="~/Images/close.svg" alt="Close categories list" id="close" class="close"></li>
+                    <li>Categories:</li>
+                    @foreach (var Category in ViewBag.Categories)
+                    {
+                        <a href="@Url.Action("List", "Home", new {category = Category })">
+                            <li>@((string)Category)</li>
+                        </a>
+                    }
+                    <a href="@Url.Action("List", "Home")"><li>all</li></a>
+                </ul>
+            </div>
+
+            <!-- All items render here -->
+            <div class="content-wrap" id="content-wrap">
+                @RenderBody()
+            </div>
+
+            <footer>
+                <div class="container">
+                    <div class="footer-container">
+                        <p><small>my mail: nikolay_ka4ok@polandmail.com</small></p>
+                        <p>
+                            <small>
+                                Copyright © 2019 FyzrukShop GmbH, Yuvilejnyj Ave, 52B Kharkiv, Kharkivs'ka oblast, 61000 - All rights
+                                reserved
+                            </small>
+                        </p>
+                        <p>
+                            <small>
+                                All prices incl. value added tax excl. shipping costs *current or former recommended retail prices of
+                                manufacturer including value added tax
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Categories.js"></script>
+    <script type="text/javascript" src="~/Scripts/Cart.js"></script>
+    <script type="text/javascript" src="~/Scripts/Order.js"></script>
+
+</body>
+
+</html>

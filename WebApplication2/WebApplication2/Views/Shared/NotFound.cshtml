@@ -1,0 +1,24 @@
+﻿@model string
+@{
+    ViewBag.Title = "Not Found";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<div class="container">
+    <h1>Error 404</h1>
+    <h2>Page not found</h2>
+</div>
+
+<hr class="upper-line">
+
+<div class="container">
+    <p>
+        @Model
+    </p>
+    <p>
+        Please, go to the main page
+        or select suitable category
+    </p>
+</div>
+
+<hr class="lower-line">

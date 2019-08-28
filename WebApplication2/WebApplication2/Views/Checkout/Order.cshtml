@@ -1,0 +1,73 @@
+﻿@model WebApplication2.Models.DOMAINModel.Entities.OrderDetails
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<div class=container>
+    <h1>Checkout</h1>
+</div>
+
+<hr class="upper-line">
+
+<div class="container">
+    <div class="checkout-wrapper">
+        <main class="checkout-main">    
+            <section class="shipping">
+                <header class="head">                    
+                    <h2>Shipping</h2>
+                </header>
+                <section id="shipping-inner" class="shipping-inner">
+                    @using (Ajax.BeginForm("Payment", "Checkout", new AjaxOptions
+                    { UpdateTargetId = "payment-inner", OnSuccess = "Slide"}))
+                    {
+                        <section>
+                        <div class="name">
+                            @Html.EditorFor(o => o.Name, new { htmlAttributes = new { placeholder = "First name" } })
+                            @Html.ValidationMessageFor(o => o.Name)
+                        </div>
+                        <div class="last-name">
+                            @Html.EditorFor(o => o.LastName, new { htmlAttributes = new { placeholder = "Last name" } })
+                            @Html.ValidationMessageFor(o => o.LastName)
+                        </div>
+                        </section>
+                        <section>
+                        <div class="country">
+                            @Html.EditorFor(o => o.Country, new { htmlAttributes = new { placeholder = "Country" } })
+                            @Html.ValidationMessageFor(o => o.Country)
+
+                        </div>
+                        <div class="city">
+                            @Html.EditorFor(o => o.City, new { htmlAttributes = new { placeholder = "City" } })
+                            @Html.ValidationMessageFor(o => o.City)
+                        </div>
+                        </section>
+                        <section>
+                        <div class="email">
+                            @Html.EditorFor(o => o.Email, new { htmlAttributes = new { placeholder = "Email" } })
+                            @Html.ValidationMessageFor(o => o.Email)
+
+                        </div>
+                        <div class="phone-number">
+                            @Html.EditorFor(o => o.PhoneNumber, new { htmlAttributes = new { placeholder = "Phone number" } })
+                            @Html.ValidationMessageFor(o => o.PhoneNumber)
+
+                        </div>
+                        </section>
+                            <input type="submit" value="Save & Continue" class="btn-buy">
+                            }
+                </section>
+            </section>
+            <section class="payment">
+                <header>
+                    <h2>Payment</h2>
+                </header>
+                <section class="payment-inner" id="payment-inner">
+                    @Html.Action("Payment")
+                </section>
+            </section>
+        </main>
+    </div>
+</div>
+
+<hr class="lower-line">

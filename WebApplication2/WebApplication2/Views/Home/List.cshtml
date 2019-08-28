@@ -1,0 +1,44 @@
+﻿@model WebApplication2.Models.ItemsListViewModel
+
+@{
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+    ViewBag.Css = "/Content/List.css";
+    ViewBag.Category = Model.CurrentCategory;
+    ViewBag.Title = "Fyzruk shop";
+}
+<section class="greeting">
+    <div class="container">
+        <h1>Welcome to my shop!</h1>
+        <p>
+            Any sport gear for your needs and more!<br>Low-priced sportswear in high quality, made by my best friends
+            at Poland.
+        </p>
+    </div>
+</section>
+
+<hr class="upper-line">
+
+<div class="container">
+    <div class="items-container" id="items-container">
+        @foreach (var el in Model.Items)
+        {
+            Html.RenderPartial("ItemSummary", el);
+        }
+    </div>
+</div>
+
+<div class="container">
+    @if (Model.PagesCount > 1)
+    {
+        <div class="page-list">
+            @for (int i = 1; i <= Model.PagesCount; i++)
+            {
+                <a href="~/@Model.CurrentCategory/Page=@i">
+                    <div class="page-number">@i</div>
+                </a>
+            }
+        </div>
+    }
+</div>
+
+<hr class="lower-line">

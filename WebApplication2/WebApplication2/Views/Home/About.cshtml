@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+    ViewBag.Title = "About my shop";
+    ViewBag.Css = "/Content/about.css";
+}
+<section>
+    <div class="container">
+        <article>
+            <div class="first-section">
+                <h1>About my shop</h1>
+                <h3>FyzrukShop - best sportgear out there!</h3>
+                <p>
+                    We have a large variety of products, so that you can always be in shape,
+                    thanks to my friends at Poland and <i>special thanks</i> to funding from Silikon Valley.
+                    Also we have a <strong>great discount</strong> for people from school 58.
+                    At school we often hold competitions and that's why I created this shop, so that anyone can be ready
+                    for
+                    their first competition. With our gear, you'll be ready for any challenge life throws at
+                    you.<br>
+                    Stay
+                    safe!
+                </p>
+            </div>
+        </article>
+
+        <div class="image-container">
+            <h4>Hey! That's me!</h4>
+
+            <figure>
+                <a href="@Url.Action("List", new { category = "Secret"})">
+                    <img src="https://school58.org/uploads/201705/4/67/1098/400x600_20170516124534a951f3b17c.jpg"
+                         alt="That's me" class="my-photo">
+                </a>
+                <figcaption>Leonov Nikolay Alekseevich</figcaption>
+            </figure>
+        </div>
+
+        <article>
+            <div class="orange-container">
+                <h4>What doesn't kill you makes you stronger</h4>
+                <p>
+                    That's right! Nothing can kill me, that's why I'm so big and strong. <strong>
+                        Stronger than
+                        anyone
+                    </strong>,
+                    even Chuck Norris, he is just a poseur. My biceps is 54cm whide, yeah, you read it right,
+                    more than Arnold Schwarzenegger had! <small>Tell you a secret...</small> He is working at my gym
+                    now, hangs me weight plates.
+                </p>
+                <h4>Competitions? Pff, too ez</h4>
+                <p>
+                    I won every single competition in the world. Don't believe me? Than look at my biceps and think
+                    twice.
+                    Nah, just kidding, I can't participate in every competition, that's not possible.
+                </p>
+                <h4>You should definitely visit me in a school basement</h4>
+                <p>
+                    Why? If you like shooting or just want to have a nice chat with me,
+                    come and i'll teach you the <storng>wrong way</storng> of using a gun. Unfortunately, I know
+                    only this method.
+                </p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<div class="orange-bottom"> </div>

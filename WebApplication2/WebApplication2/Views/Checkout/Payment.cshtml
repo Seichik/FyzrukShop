@@ -1,0 +1,41 @@
+﻿<div class="payment-select">
+    <div class="payment-select-inner">
+        <div class="cash">
+            <h3>Cash:</h3>
+            <label>
+            <input id="radio-cash" class="payment-radio" type="radio" name="payment" value="cash">
+            <img id="cash-img" src="~/Images/cash.svg">
+            </label>
+        </div>
+        <div class="credit">
+            <h3>Credit card:</h3>
+            <label>
+            <input id="radio-credit" class="payment-radio" type="radio" name="payment" value="credit-card">
+            <img id="credit-img" src="~/Images/creditcard.svg">
+            </label>
+        </div>
+    </div>
+    <div>
+        <section id="payment-cash" class="payment-cash hide">
+            <h4>Total amount payable: @ViewBag.TotalPrice </h4>
+        </section>
+        <section id="payment-credit" class="payment-credit-card hide">
+            <label>
+            <input id="radio-visa" class="payment-radio" type="radio" name="credit-card" value="visa">
+            <img id="visa-img" src="~/Images/visa.svg">
+            </label>
+            <label>
+            <input id="radio-mastercard" class="payment-radio" type="radio" name="credit-card" value="master-card">
+            <img id="mastercard-img" src="~/Images/mastercard.svg">
+            </label>
+
+            <section class="payment-visa">
+
+            </section>
+
+            <section class="payment-mastercard">
+                
+            </section>
+        </section>
+    </div>
+</div>

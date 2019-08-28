@@ -1,0 +1,22 @@
+﻿@model WebApplication2.Models.DOMAINModel.Entities.Item
+<div class="item" id="item">
+    <a href="/Home/ItemPage/Id=@Model.ID">
+        <div>
+            <p class="name">@Model.Name</p>
+            <img width="100" height="100" src="@Url.Action("GetImage","Home", new { Model.ID})" />
+            <p>@Model.ShortDescription</p>
+        </div>
+    </a>
+    <p>Price: <i>@Model.Price.ToString("n") $</i><p>
+        @using (Ajax.BeginForm("AddToCart", "Cart", new AjaxOptions
+        {
+            UpdateTargetId = "cart-popup-inner",
+            OnSuccess = "added"
+            //OnBegin = "OnBegin"
+        }))
+        {
+            @Html.HiddenFor(m => m.ID)
+            <button type="submit" class="btn-buy">Add to cart</button>
+        }
+
+</div>
