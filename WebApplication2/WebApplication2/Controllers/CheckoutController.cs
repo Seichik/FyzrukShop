@@ -16,7 +16,8 @@ namespace WebApplication2.Controllers
         public ActionResult Payment(Cart cart, OrderDetails order)
         {
             //Implemention of order saving
-            ViewBag.TotalPrice = cart.TotalPrice.ToDollar();
+            ViewBag.PriceInDollars = cart.TotalPrice.ToDollar();
+            ViewBag.TotalPrice = cart.TotalPrice;
             return View("Payment");
         }
     }

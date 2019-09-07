@@ -33,6 +33,11 @@ namespace WebApplication2.Controllers
             return PartialView(cart);
         }
 
+        public string CartCounter(Cart cart)
+        {
+            return cart.TotalItems.ToString();
+        }
+
         public ActionResult CartWidget(Cart cart)//( ͡° ͜ʖ ͡°)
         {
             return PartialView(cart);
@@ -49,6 +54,12 @@ namespace WebApplication2.Controllers
         {
             cart.RemoveLine(ID);
             return RedirectToAction("OpenCart");//( ͡° ͜ʖ ͡°)
+        }
+
+        public ActionResult DeleteAllLines(Cart cart)
+        {
+            cart.Clear();
+            return RedirectToAction("OpenCart");
         }
     }
 }

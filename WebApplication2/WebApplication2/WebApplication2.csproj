@@ -111,7 +111,7 @@
     <Content Include="App_Data\FyzrukShop_log.ldf">
       <DependentUpon>FyzrukShop.mdf</DependentUpon>
     </Content>
-    <Content Include="Content\Main.css" />
+    <Content Include="Content\main.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\cart-close.svg" />
     <Content Include="Images\cart-empty.svg" />
@@ -148,7 +148,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\Cart.js" />
+    <Content Include="Scripts\cart.js" />
     <Content Include="Scripts\Categories.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

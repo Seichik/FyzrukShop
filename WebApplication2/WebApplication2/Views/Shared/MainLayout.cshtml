@@ -12,13 +12,13 @@
 
 <!DOCTYPE html>
 
-<html lang=en>
+<html lang=en id="html">
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rancho&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap" rel="stylesheet">
-    <link href="/Content/Main.css" type="text/css" rel="stylesheet">
+    <link href="/Content/main.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="~/Images/Fyzruk_Favicon.png" type="image/png" sizes="16x16">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,6 +35,12 @@
     <!-- Main cart popup -->
     <div class="main-cart hide" id="main-cart">
         <div class="main-cart-header">
+            <span id="remove-cart-items">
+                        @Ajax.ActionLink("Remove all items","DeleteAllLines", "Cart", new AjaxOptions
+                {
+                    UpdateTargetId = "main-cart-inner"
+                })
+            </span>
             <img src="~/Images/cart-close.svg" alt="Close cart" id="cart-close">
         </div>
         <div class="main-cart-inner-wrapper" id="main-cart-inner">
@@ -62,7 +68,7 @@
                                 <li>@Html.ActionLink("home", "List", "Home")</li>
                                 <li>@Html.ActionLink("about", "About", "Home")</li>
                                 <li>@Html.ActionLink("contact", "Contact", "Home")</li>
-                                <li>
+                                <li id="li-last">
                                     <a data-ajax="true" data-ajax-success="mainCartOpen" data-ajax-mode="replace" data-ajax-update="#main-cart-inner" href="@Url.Action("OpenCart","Cart")">
                                         <img class="cart" src="~/Images/shopping-cart.svg" alt="Shopping cart" id="cart">
                                     </a>
@@ -70,6 +76,9 @@
                             </ul>
                         </nav>
                     </div>
+                </div>
+                <div class="amount-items-incart hidden" id="amount-items-incart">
+                    <p id="counter">@Html.Action("CartCounter", "Cart")</p>
                 </div>
             </header>
 
@@ -135,7 +144,7 @@
     <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script type="text/javascript" src="~/Scripts/Categories.js"></script>
-    <script type="text/javascript" src="~/Scripts/Cart.js"></script>
+    <script type="text/javascript" src="~/Scripts/cart.js"></script>
     <script type="text/javascript" src="~/Scripts/Order.js"></script>
 
 </body>

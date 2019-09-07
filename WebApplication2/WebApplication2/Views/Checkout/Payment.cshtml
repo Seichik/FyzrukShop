@@ -1,40 +1,72 @@
-﻿<div class="payment-select">
+﻿
+<div class="payment-select">
     <div class="payment-select-inner">
         <div class="cash">
             <h3>Cash:</h3>
             <label>
-            <input id="radio-cash" class="payment-radio" type="radio" name="payment" value="cash">
-            <img id="cash-img" src="~/Images/cash.svg">
+                <input name="payment-select" id="radio-cash" class="payment-radio" type="radio" value="cash">
+                <img id="cash-img" src="~/Images/cash.svg" alt="Cash">
             </label>
         </div>
         <div class="credit">
             <h3>Credit card:</h3>
             <label>
-            <input id="radio-credit" class="payment-radio" type="radio" name="payment" value="credit-card">
-            <img id="credit-img" src="~/Images/creditcard.svg">
+                <input name="payment-select" id="radio-credit" class="payment-radio" type="radio" value="credit-card">
+                <img id="credit-img" src="~/Images/creditcard.svg" alt="Credit card">
             </label>
         </div>
     </div>
     <div>
-        <section id="payment-cash" class="payment-cash hide">
-            <h4>Total amount payable: @ViewBag.TotalPrice </h4>
-        </section>
-        <section id="payment-credit" class="payment-credit-card hide">
-            <label>
-            <input id="radio-visa" class="payment-radio" type="radio" name="credit-card" value="visa">
-            <img id="visa-img" src="~/Images/visa.svg">
-            </label>
-            <label>
-            <input id="radio-mastercard" class="payment-radio" type="radio" name="credit-card" value="master-card">
-            <img id="mastercard-img" src="~/Images/mastercard.svg">
-            </label>
-
-            <section class="payment-visa">
-
-            </section>
-
-            <section class="payment-mastercard">
-                
+        <div id="payment-cash" class="hide payment-cash">
+            <h4>Total amount payable: <span>@ViewBag.PriceInDollars</span> </h4>
+            <input class="btn-buy" id="checkout-buy-cash" type="submit" value="Confirm">
+        </div>
+        <section id="payment-credit" class="hide payment-credit">
+            <section class="payment-credit-inner">
+                <div class="credit-select">
+                    <label>
+                        <input id="radio-visa" class="payment-radio" type="radio" name="credit-card" value="visa">
+                        <img id="visa-img" src="~/Images/visa.svg" alt="Visa">
+                    </label>
+                    <label>
+                        <input id="radio-mastercard" class="payment-radio" type="radio" name="credit-card" value="master-card">
+                        <img id="mastercard-img" src="~/Images/mastercard.svg" alt="Mastercard">
+                    </label>
+                </div>
+                    <section id="payment-fields" class="payment-fields hide">
+                        <div class="payment-amount">
+                            <p class="title">Payment amount</p>
+                            <div class="amount-field">
+                                <div class="amount-field-currency">
+                                    <p>$</p>
+                                </div>
+                                <div class="amount-field-number">
+                                    <p>@ViewBag.TotalPrice</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-wrap">
+                            <label>Name on card
+                            <input id="card-name" class="card-field" type="text">
+                            </label>
+                        </div>
+                        <div class="card-wrap">
+                            <label>Card number
+                            <input id="card-number" class="card-field" type="text">
+                            </label>
+                        </div>
+                        <div class="expire-security">
+                            <label>
+                            Expire date
+                            <input id="expire-date" class="card-field" type="text" placeholder="MM/YY">
+                            </label>
+                            <label>
+                            Security code
+                            <input id="security-code" class="card-field" type="text" maxlength="3">
+                            </label>     
+                        </div>
+                        <input class="btn-buy" id="checkout-buy-credit" type="submit" value="Pay">
+                    </section>
             </section>
         </section>
     </div>

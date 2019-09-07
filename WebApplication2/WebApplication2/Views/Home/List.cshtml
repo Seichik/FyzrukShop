@@ -34,7 +34,12 @@
             @for (int i = 1; i <= Model.PagesCount; i++)
             {
                 <a href="~/@Model.CurrentCategory/Page=@i">
-                    <div class="page-number">@i</div>
+                    <div class="page-number @if (i == Model.PageInfo.CurrentPage)
+                    {
+                        @:current-page
+                    }">
+                    @i
+                    </div>
                 </a>
             }
         </div>
