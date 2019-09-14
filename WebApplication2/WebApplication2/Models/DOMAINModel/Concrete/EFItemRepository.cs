@@ -27,8 +27,8 @@ namespace WebApplication2.Models.DOMAINModel.Concrete
                 aimItem.Price = item.Price;
                 aimItem.ShortDescription = item.ShortDescription;
                 aimItem.FullDescription = item.FullDescription;
-                aimItem.ImageType = item.ImageType;
-                aimItem.Image = item.Image;
+                aimItem.Image.ImageType = item.Image.ImageType;
+                aimItem.Image.MainImage = item.Image.MainImage;
             }
             context.SaveChanges();
 

@@ -12,7 +12,7 @@
         <p>@el.Item.Name</p>
     </header>
     <section>
-        <img src="@Url.Action("GetImage", "Home", new { el.Item.ID })">
+        <img src="@Url.Action("GetImage", "Home", new { id = el.Item.ID, imageKind = 3})">
         <div class="price-container"><p title="Item price"><span class="item-price">@el.Item.Price</span></p></div>
         <div class="shortdesc-container"><p class="item-shortdesc">@el.Item.ShortDescription</p></div>
         <div class="item-btns">

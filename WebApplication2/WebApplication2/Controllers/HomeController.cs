@@ -10,6 +10,7 @@ namespace WebApplication2.Controllers
     [HandleError]
     public class HomeController : Controller
     {
+        public enum ImageView { MainImage, ListImage, CartImage}
         private IRepository repository;
         int PageSize = 12; // Amount of items on a page
         public HomeController(IRepository repository)
@@ -63,12 +64,12 @@ namespace WebApplication2.Controllers
             return View(item);
         }
 
-        public FileContentResult GetImage(int id)
+        public FileContentResult GetImage(int id, int imageKind)
         {
             Item item = repository.Items.SingleOrDefault(it => it.ID == id);
-
-            if (item.Image != null)
-                return File(item.Image, item.ImageType);
+            
+            if (item.Image.ListImage != null)
+                return File(item.Image.Get((Image.ImageKind)imageKind), item.Image.ImageType);
             else
                 return null;
         }

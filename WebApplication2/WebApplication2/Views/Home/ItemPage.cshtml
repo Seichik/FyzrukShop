@@ -15,7 +15,7 @@
             <hr class="upper-line">
 
             <div class="item-wrap">
-                <img src="@Url.Action("GetImage","Home", new { Model.ID})">
+                <img src="@Url.Action("GetImage","Home", new { id = Model.ID, imageKind = 1 })">
                 <div class="description">
                     <h2>@Model.Name Description</h2>
                     <p>@Model.FullDescription</p>

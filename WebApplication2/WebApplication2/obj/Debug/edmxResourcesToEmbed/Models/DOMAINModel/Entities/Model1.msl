@@ -10,7 +10,7 @@
           <ScalarProperty Name="Category" ColumnName="Category" />
           <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
           <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ImageMain" ColumnName="Image" />
           <ScalarProperty Name="ImageType" ColumnName="ImageType" />
         </MappingFragment>
       </EntityTypeMapping>

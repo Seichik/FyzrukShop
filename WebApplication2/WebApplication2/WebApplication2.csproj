@@ -129,25 +129,8 @@
     <Content Include="Images\minus.svg" />
     <Content Include="Images\plus.svg" />
     <Content Include="Images\shopping-cart.svg" />
-    <EntityDeploy Include="Models\DOMAINModel\Entities\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Images\visa.svg" />
-    <Content Include="Models\DOMAINModel\Entities\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Models\DOMAINModel\Entities\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DOMAINModel\Entities\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\cart.js" />
     <Content Include="Scripts\Categories.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -181,25 +164,11 @@
     <Compile Include="Models\DOMAINModel\Abstract\IRepository.cs" />
     <Compile Include="Models\DOMAINModel\Concrete\EFItemRepository.cs" />
     <Compile Include="Models\DOMAINModel\Entities\Cart.cs" />
-    <Compile Include="Models\DOMAINModel\Entities\Item.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DOMAINModel\Entities\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DOMAINModel\Entities\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DOMAINModel\Entities\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\DOMAINModel\Entities\Image.cs" />
+    <Compile Include="Models\DOMAINModel\Entities\Item.cs" />
+    <Compile Include="Models\DOMAINModel\Entities\Model1.cs" />
     <Compile Include="Models\DOMAINModel\Entities\OrderDetails.cs" />
+    <Compile Include="Models\DOMAINModel\Entities\sysdiagram.cs" />
     <Compile Include="Models\ItemsListViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

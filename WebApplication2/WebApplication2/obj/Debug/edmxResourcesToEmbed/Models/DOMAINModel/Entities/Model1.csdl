@@ -10,8 +10,9 @@
     <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="ShortDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FullDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ImageMain" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="ImageType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ImageCart" Type="String" Nullable="false" />
   </EntityType>
   <EntityContainer Name="FyzrukShopEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Items" EntityType="Self.Item" />

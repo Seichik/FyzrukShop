@@ -36,9 +36,9 @@ namespace WebApplication2.Controllers
             //Need to fix it
             if(image != null)
             {
-                item.ImageType = image.ContentType;
-                item.Image = new byte[image.ContentLength];
-                image.InputStream.Read(item.Image, 0, image.ContentLength);
+                item.Image.ImageType = image.ContentType;
+                item.Image.MainImage = new byte[image.ContentLength];
+                image.InputStream.Read(item.Image.MainImage, 0, image.ContentLength);
             }
             repository.SaveItem(item);
             return RedirectToAction("Index");

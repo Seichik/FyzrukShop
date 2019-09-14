@@ -3,7 +3,7 @@
     <a href="/Home/ItemPage/Id=@Model.ID">
         <div>
             <p class="name">@Model.Name</p>
-            <img width="100" height="100" src="@Url.Action("GetImage","Home", new { Model.ID})" />
+            <img width="100", height="100" src="@Url.Action("GetImage","Home", new { id = Model.ID, imageKind = 2 })" />
             <p>@Model.ShortDescription</p>
         </div>
     </a>

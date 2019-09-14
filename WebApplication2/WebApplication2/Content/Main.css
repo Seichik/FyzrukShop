@@ -468,17 +468,16 @@ nav li a:hover::after {
 .categories-container {
     z-index: 6;
     position: fixed;
-    padding-top: 9.2rem;
+    padding-top: 11.2rem;
     left: 0;
     background-color: rgba(255, 150, 74, 0.836);
     height: 100%;
     transform: translateX(-30rem);
-    animation: SlideIn 200ms forwards ease-out;
+    transition: transform .3s ease-out;
 }
 
-.categories {
-    left: 0;
-    top: 30%;
+.categories-container.slide {
+    transform: translate(0);
 }
 
 .categories a {
@@ -498,19 +497,15 @@ ul.categories {
     margin: 0;
 }
 
-.categories a:hover {
+.categories .category:hover {
     background-color: #FF6600;
 }
 
-.categories li:first-child:hover {
+.categories .title:hover {
     background-color: inherit;
 }
 
-.categories li:nth-child(2):hover {
-    background-color: inherit;
-}
-
-.categories li:nth-child(2) {
+.categories .title {
     font-size: 25px;
     font-weight: 600;
     text-transform: uppercase;
@@ -525,27 +520,72 @@ ul.categories {
     width: 262px;
 }
 
-.li-close {
-    text-align: left;
-}
+/* HAMBURGER categories btn START */
 
-.list {
+.icon {
     float: left;
     position: absolute;
     left: 0;
     top: 100%;
     cursor: pointer;
-}
-
-#list {
     width: 40px;
+    height: 40px;
+    z-index: 30;
 }
 
-#close {
-    width: 27px;
-    cursor: pointer;
-    text-align: left;
+.hamburger {
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    transition: .3s;
 }
+/*какой нахуй гамбургер*/
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    transition: .3s;
+    left: 0;
+}
+
+.hamburger::before {
+    top: -12px;
+}
+
+.hamburger::after {
+    top: 12px;
+}
+
+.icon.active {
+    position: fixed;
+    top: 143px;
+}
+
+.icon.active .hamburger {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+.icon.active .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.icon.active .hamburger::after {
+    top: 0;
+    transform: rotate(135deg);
+}
+
+/* HAMBURGER categories btn END */
 
 .hide {
     display: none !important;
@@ -1289,19 +1329,10 @@ hr {
 
 @keyframes SlideIn {
     from {
+        transform: translate(30rem);
     }
-
     to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes SlideOut {
-    from {
-    }
-
-    to {
-        transform: translateX(-30rem);
+        transform: translate(0);
     }
 }
 
@@ -1385,12 +1416,16 @@ hr {
     }
 
     .categories-container {
-        padding-top: 6.4rem;
+        padding-top: 8.4rem;
     }
 
     .amount-items-incart {
         top: 3rem;
         right: 1.5rem;
+    }
+
+    .icon.active {
+        top: 97px;
     }
 }
 

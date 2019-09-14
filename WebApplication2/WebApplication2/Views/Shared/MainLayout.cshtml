@@ -62,7 +62,9 @@
                         <a href="@Url.Action("List", "Home")">
                             <img src="~/Images/logo.svg" alt="Fyzruk Shop" class="logo" />
                         </a>
-                        <img src="~/Images/list.svg" alt="Open categories list" class="list" id="list" />
+                        <div class="icon">
+                            <div class="hamburger"></div>
+                        </div>
                         <nav>
                             <ul>
                                 <li>@Html.ActionLink("home", "List", "Home")</li>
@@ -98,18 +100,17 @@
             </div>
 
             <!-- Categories -->
-            <div class="categories-container hide" id="categories-container">
+            <div class="categories-container" id="categories-container">
 
                 <ul class="categories">
-                    <li class="li-close"><img src="~/Images/close.svg" alt="Close categories list" id="close" class="close"></li>
-                    <li>Categories:</li>
+                    <li class="title">Categories:</li>
                     @foreach (var Category in ViewBag.Categories)
                     {
                         <a href="@Url.Action("List", "Home", new {category = Category })">
-                            <li>@((string)Category)</li>
+                            <li class="category">@((string)Category)</li>
                         </a>
                     }
-                    <a href="@Url.Action("List", "Home")"><li>all</li></a>
+                    <a href="@Url.Action("List", "Home")"><li class="category">all</li></a>
                 </ul>
             </div>
 
