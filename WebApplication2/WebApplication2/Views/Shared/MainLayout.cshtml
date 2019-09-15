@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rancho&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap" rel="stylesheet">
-    <link href="/Content/main.css" type="text/css" rel="stylesheet">
+    <link href="/Content/Main.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="~/Images/Fyzruk_Favicon.png" type="image/png" sizes="16x16">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,10 +36,10 @@
     <div class="main-cart hide" id="main-cart">
         <div class="main-cart-header">
             <span id="remove-cart-items">
-                        @Ajax.ActionLink("Remove all items","DeleteAllLines", "Cart", new AjaxOptions
-                {
-                    UpdateTargetId = "main-cart-inner"
-                })
+                @Ajax.ActionLink("Remove all items", "DeleteAllLines", "Cart", new AjaxOptions
+        {
+            UpdateTargetId = "main-cart-inner"
+        })
             </span>
             <img src="~/Images/cart-close.svg" alt="Close cart" id="cart-close">
         </div>
@@ -49,8 +49,8 @@
         <div class="main-cart-footer">
             <input type="submit" value="Continue shopping" id="btn-cnt">
             @using (Html.BeginForm("Order", "Checkout"))
-            { <input type="submit" value="To checkout" id="btn-check"> }
-            
+            {<input type="submit" value="To checkout" id="btn-check">}
+
         </div>
     </div>
 
@@ -117,7 +117,9 @@
             <!-- All items render here -->
             <div class="content-wrap" id="content-wrap">
                 @RenderBody()
+                <div class="spinner-3"></div>
             </div>
+
 
             <footer>
                 <div class="container">
@@ -144,9 +146,9 @@
     <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/Categories.js"></script>
     <script type="text/javascript" src="~/Scripts/cart.js"></script>
     <script type="text/javascript" src="~/Scripts/Order.js"></script>
+    <script type="text/javascript" src="~/Scripts/Main.js"></script>
 
 </body>
 

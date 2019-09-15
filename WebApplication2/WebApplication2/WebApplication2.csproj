@@ -111,7 +111,7 @@
     <Content Include="App_Data\FyzrukShop_log.ldf">
       <DependentUpon>FyzrukShop.mdf</DependentUpon>
     </Content>
-    <Content Include="Content\main.css" />
+    <Content Include="Content\Main.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\cart-close.svg" />
     <Content Include="Images\cart-empty.svg" />
@@ -132,7 +132,6 @@
     <Content Include="Images\visa.svg" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\cart.js" />
-    <Content Include="Scripts\Categories.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -144,6 +143,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Main.js" />
     <Content Include="Scripts\Order.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\ItemSummary.cshtml" />

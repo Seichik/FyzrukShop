@@ -8,7 +8,6 @@
 .page-wrap {
     position: relative;
     min-height: 100vh;
-    transition: all 500ms;
 }
 
 .content-wrap {
@@ -17,10 +16,39 @@
 
 /* Wrappers Section End */
 
+/* Spinner Start */
+
+.spinner-3 {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 0;
+    position: absolute;
+}
+
+.spinner-3:before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    border-radius: 50%;
+    border-top: 2px solid coral;
+    border-right: 2px solid transparent;
+    animation: spinner 0.7s linear infinite;
+}
+
+/* Spinner End */
+
 /* Tag Section Start */
 
 body {
-    overflow-x: hidden;
     height: 100%;
     margin: 0;
     font-family: 'Libre Franklin', sans-serif;
@@ -187,7 +215,7 @@ nav li a:hover::after {
     position: absolute;
     right: 2rem;
     top: 6.3rem;
-    padding-top:1.5rem;
+    padding-top: 1.5rem;
     width: auto;
     margin: 0;
     animation: CartPopup 100ms forwards ease-out;
@@ -196,7 +224,7 @@ nav li a:hover::after {
 .cart-popup-container {
     border-radius: 12px;
     background-color: white;
-    box-shadow: 2px 3px 5px #636363;  
+    box-shadow: 2px 3px 5px #636363;
     max-width: 300px;
     max-height: 200px;
     width: auto;
@@ -204,7 +232,7 @@ nav li a:hover::after {
 }
 
 .cart-popup-inner-wrapper {
-    padding: .5em 1.5em ;
+    padding: .5em 1.5em;
     margin: 0;
     width: auto;
     text-align: center;
@@ -245,7 +273,7 @@ nav li a:hover::after {
     border-radius: 12px;
     background-color: white;
     box-shadow: 2px 3px 5px #636363;
-    animation: CartPopup 100ms forwards ease-out;  
+    animation: CartPopup 100ms forwards ease-out;
 }
 
 .cart-added p {
@@ -274,7 +302,7 @@ nav li a:hover::after {
 }
 
 .main-cart-header {
-    background-color: rgb(255, 156, 85); 
+    background-color: rgb(255, 156, 85);
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     padding: 0;
@@ -393,6 +421,7 @@ nav li a:hover::after {
 .item-btns {
     display: flex;
 }
+
 .item-btns form form {
     display: inline-flex;
 }
@@ -544,6 +573,7 @@ ul.categories {
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     transition: .3s;
 }
+
 /*какой нахуй гамбургер*/
 .hamburger::before,
 .hamburger::after {
@@ -944,7 +974,7 @@ figcaption {
 .orange-bottom {
     display: inline-block;
     position: absolute;
-    left:17.5%;
+    left: 17.5%;
     text-align: center;
     min-height: 8rem;
     background-color: rgb(255, 187, 142);
@@ -1031,7 +1061,7 @@ figcaption {
 }
 
 .shipping div input {
-    width:100%;
+    width: 100%;
     height: 30px;
     font-size: 18px;
 }
@@ -1095,7 +1125,7 @@ figcaption {
     width: 100%;
     font-size: 18px;
     padding: 0;
-    border-radius: 8px; 
+    border-radius: 8px;
     border: 1px solid rgb(146, 146, 146);
 
 }
@@ -1108,7 +1138,7 @@ figcaption {
 }
 
 .payment-fields label {
-    margin-top: .5em; 
+    margin-top: .5em;
 }
 
 .expire-security {
@@ -1205,19 +1235,19 @@ figcaption {
     height: 0;
 }
 
-.payment-select-inner .payment-radio + img {
+.payment-select-inner .payment-radio+img {
     cursor: pointer;
 }
 
-.payment-select-inner .payment-radio:checked + img {
+.payment-select-inner .payment-radio:checked+img {
     outline: 2px solid #FF6600;
 }
 
-.credit-select .payment-radio + img {
+.credit-select .payment-radio+img {
     cursor: pointer;
 }
 
-.credit-select .payment-radio:checked + img {
+.credit-select .payment-radio:checked+img {
     filter: brightness(80%);
     background-color: rgb(218, 218, 218);
 }
@@ -1232,11 +1262,11 @@ figcaption {
 .field-validation-error {
     color: #b94a48;
 }
- 
+
 .field-validation-valid {
     display: none;
 }
- 
+
 input.input-validation-error {
     border: 1px solid #b94a48;
 }
@@ -1273,6 +1303,7 @@ hr {
     background-color: #D8D8D8;
     margin-bottom: 0;
     width: 100%;
+    height: 126px;
     bottom: 0;
     position: absolute;
 }
@@ -1295,11 +1326,18 @@ hr {
     animation: MainCartPopout 300ms forwards ease-out;
 }
 
-@keyframes MainCartPopup{
+@keyframes spinner {
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+@keyframes MainCartPopup {
     from {
         filter: opacity(0);
         transform: scale(0);
     }
+
     to {
         filter: opacity(100%);
         transform: scale(100%);
@@ -1311,6 +1349,7 @@ hr {
         filter: opacity(100%);
         transform: scale(100%);
     }
+
     to {
         filter: opacity(0);
         transform: scale(0);
@@ -1319,8 +1358,9 @@ hr {
 
 @keyframes CartPopup {
     from {
-        filter: opacity(0);   
+        filter: opacity(0);
     }
+
     to {
         transform: translateY(1rem);
         filter: opacity(100%);
@@ -1331,6 +1371,7 @@ hr {
     from {
         transform: translate(30rem);
     }
+
     to {
         transform: translate(0);
     }
@@ -1349,11 +1390,11 @@ hr {
     .empty-cart {
         margin-top: 5%;
     }
-    
+
     .main-cart-inner-wrapper {
         height: 236px;
     }
-    
+
     .main-cart-item .price-container {
         margin-right: .7em;
     }
@@ -1460,6 +1501,7 @@ hr {
         width: 15%;
     }
 }
+
 /* Media MIN Section End */
 
 /* KeyFrames & Media Section End */
@@ -1538,6 +1580,7 @@ hr {
 .secret .cart-added p {
     color: black;
 }
+
 /* Cart Section End */
 
 /* Button add to cart Section Start */
@@ -1625,7 +1668,7 @@ hr {
 }
 
 .secret #btn-check:hover,
-.secret #btn-cnt:hover  {
+.secret #btn-cnt:hover {
     background-color: crimson;
     color: white;
 }
@@ -1636,6 +1679,7 @@ hr {
     color: grey;
     box-shadow: 2px 2px gray inset;
 }
+
 /* Main cart section End */
 
 /*-------------- Secret Uniq Start ----------------*/
@@ -1708,7 +1752,7 @@ hr {
 }
 
 .secret .categories-container {
-    background-color: rgb(169,26,26, 0.836);
+    background-color: rgb(169, 26, 26, 0.836);
 }
 
 .secret .categories a:hover {
@@ -1732,7 +1776,7 @@ hr {
 }
 
 .secret .footer-container {
-    background-color: rgb(105,17,17);
+    background-color: rgb(105, 17, 17);
 }
 
 .secret .footer-container p {
